@@ -43,8 +43,14 @@
   --text-35-40: 35px;
   --text-35-40--line-height: 40px;
 
+  --text-30-100: 30px;
+  --text-30-100--line-height: 100px;
+
   --text-28-32: 28px;
   --text-28-32--line-height: 32px;
+
+  --text-24-100: 24px;
+  --text-24-100--line-height: 100px;
 
   --text-16-30: 16px;
   --text-16-30--line-height: 30px;
@@ -176,12 +182,12 @@
   * {
     @apply border-border outline-ring/50;
   }
-  body {
-    @apply bg-background text-foreground;
+  html {
+    @apply font-metropolis;
   }
 
-  Button {
-    @apply font-inter;
+  body {
+    @apply bg-background text-foreground;
   }
 }
 
