@@ -5,6 +5,11 @@
 
 @theme {
   /* colors */
+  --color-purple-50: #f7f5fa;
+
+  /* dark */
+  --color-dark: #1a1625;
+
   /* Purple */
   --color-purple-900: #9c4df4;
   --color-purple-800: #954ae9;
@@ -44,13 +49,13 @@
   --text-35-40--line-height: 40px;
 
   --text-30-100: 30px;
-  --text-30-100--line-height: 100px;
+  --text-30-100--line-height: 100%;
 
   --text-28-32: 28px;
   --text-28-32--line-height: 32px;
 
   --text-24-100: 24px;
-  --text-24-100--line-height: 100px;
+  --text-24-100--line-height: 100%;
 
   --text-16-30: 16px;
   --text-16-30--line-height: 30px;
@@ -187,7 +192,7 @@
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply text-foreground dark:bg-dark bg-purple-50;
   }
 }
 
