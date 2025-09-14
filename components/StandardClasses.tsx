@@ -530,7 +530,7 @@ const StandardClasses = () => {
           ...lessonsData["Engineering"].slice(5, 6),
           ...lessonsData["More Courses"].slice(6, 11),
         ].slice(0, maxItems)
-      : lessonsData[active];
+      : lessonsData[active].slice(0, maxItems);
   return (
     <section className="flex flex-col gap-5 sm:mx-auto sm:max-w-[944px] lg:max-w-[1280px]">
       <div className="no-scrollbar flex space-x-2 overflow-x-auto sm:justify-between sm:space-x-5">
