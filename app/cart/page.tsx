@@ -13,10 +13,10 @@ export default function Cart() {
       <div className="flex-1 w-full order-1 md:order-2">
         <AllBook />
       </div>
-      
-      <div className="md:w-[320px] w-full flex flex-col gap-8 shrink-0 order-2 md:order-1">
+
+      <div className="md:w-[320px] w-full flex flex-col gap-4 shrink-0 order-2 md:order-1">
         <PopularBooks />
-        <NewArrivedBooks />
+        <NewArrivedBooks />       
       </div>
     </div>
   );
