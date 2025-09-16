@@ -1,11 +1,19 @@
 import Image from "next/image";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "./ui/select";
+import SearchIcon from "./icons";
 
 export default function HomeHeader() {
   return (
     <section className="m-auto grid gap-3.5 rounded-[10px] transition-all duration-300 sm:h-[538px] sm:grid-cols-2 sm:items-center lg:h-167 lg:max-w-[1280px]">
-      <div className="">
+      <div className="mt sm:px-5">
         <Button size="JoinCourses" variant="JoinCourses">
           College Level
         </Button>
@@ -22,17 +30,33 @@ export default function HomeHeader() {
           specialises in accredited and bespoke training courses. We crush the
           barriers togetting a degree.
         </p>
-        <div className="sm:focus-within:ring-ring/50 sm:focus-within:ring-offset-background mx-2.5 flex transition-all duration-300 max-sm:flex-col max-sm:gap-5 sm:focus-within:ring-[3px] lg:rounded-[10px]">
-          <Input
-            className="peer text-14-30 lg:text-16-30 placeholder:text-background dark:placeholder:text-foreground h-12.5 rounded-[5px] border-none bg-white font-medium sm:rounded-r-none sm:focus-visible:border-none sm:focus-visible:ring-0 lg:h-15 lg:rounded-l-[10px]"
-            placeholder="enter your email"
-          ></Input>
+        <div className="sm:focus-within:ring-ring/50 sm:focus-within:ring-offset-background relative flex max-w-152 items-center transition-all duration-300 max-sm:flex-col max-sm:gap-3 sm:focus-within:ring-[3px] lg:rounded-[10px]">
+          <div className="peer flex w-full max-sm:flex-col max-sm:gap-3">
+            <Select>
+              <SelectTrigger
+                size="lg"
+                className="text-14-30 lg:text-16-30 dark:placeholder:text-background/60 border-none bg-white font-medium placeholder:text-gray-600/60 max-sm:w-full max-sm:rounded-[5px] sm:rounded-l-[5px] lg:rounded-l-[10px] lg:data-[size=lg]:h-15"
+              >
+                <SelectValue placeholder="Kindergarten" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="Kindergarten">Kindergarten</SelectItem>
+                <SelectItem value="High School">High School</SelectItem>
+                <SelectItem value="College">College</SelectItem>
+              </SelectContent>
+            </Select>
+            <Input
+              className="text-14-30 lg:text-16-30 dark:placeholder:text-background/60 h-12.5 w-full border-none bg-white font-medium placeholder:text-gray-600/60 max-sm:rounded-[5px] sm:rounded-r-[5px] sm:focus-visible:border-none sm:focus-visible:ring-0 lg:h-15 lg:rounded-r-[10px]"
+              placeholder="Class/Course"
+            ></Input>
+          </div>
+
           <Button
-            size="subscribe"
-            variant="subscribe"
-            className="text-14-30 lg:text-16-30"
+            variant="classes"
+            className="right-1.25 max-sm:w-full sm:absolute sm:h-10 lg:h-12.5 lg:w-[143px]"
           >
-            Registation Now
+            <SearchIcon />
+            <span className="sm:hidden md:block">Search</span>
           </Button>
         </div>
       </div>
