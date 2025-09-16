@@ -1,4 +1,4 @@
-import OtherCourses from "@/components/OtherCourses";
+import OtherCourses from "@/components/OCoursesPagination";
 import Subscribe from "@/components/Subscribe";
 import Image from "next/image";
 
