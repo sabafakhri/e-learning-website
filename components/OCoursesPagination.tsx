@@ -5,10 +5,11 @@ import { Input } from "./ui/input";
 import SortBy from "./ui/SortBy";
 import React, { ReactElement, useEffect, useMemo, useState } from "react";
 import { Course } from "@/types/types";
+import OCourseCard from "./OCourseCard";
 
-interface OtherCoursesProps {
+type OtherCoursesProps = {
   courses: Course[];
-}
+};
 
 function useItemsPerPage() {
   const [itemsPerPage, setItemsPerPage] = useState(3);
@@ -32,72 +33,6 @@ function useItemsPerPage() {
 export default function OtherCoursesPagination({
   courses,
 }: OtherCoursesProps): ReactElement {
-  const Courses = [
-    {
-      id: "1",
-      title: "Introduction to Algebra",
-      rating: 4.5,
-      price: 49.99,
-      imageUrl: "https://placehold.co/400x300/A78BFA/FFFFFF?text=Algebra",
-    },
-    {
-      id: "2",
-      title: "World History: 1900-2000",
-      rating: 4.8,
-      price: 59.5,
-      imageUrl: "https://placehold.co/400x300/FBBF24/FFFFFF?text=History",
-    },
-    {
-      id: "3",
-      title: "Fundamentals of Physics",
-      rating: 4.2,
-      price: 65.0,
-      imageUrl: "https://placehold.co/400x300/60A5FA/FFFFFF?text=Physics",
-    },
-    {
-      id: "4",
-      title: "Creative Writing Workshop",
-      rating: 5,
-      price: 39.0,
-      imageUrl: "https://placehold.co/400x300/F472B6/FFFFFF?text=Writing",
-    },
-    {
-      id: "5",
-      title: "High School Chemistry",
-      rating: 4.6,
-      price: 55.99,
-      imageUrl: "https://placehold.co/400x300/34D399/FFFFFF?text=Chemistry",
-    },
-    {
-      id: "6",
-      title: "Digital Art & Design Basics",
-      rating: 4.9,
-      price: 75.0,
-      imageUrl: "https://placehold.co/400x300/FB923C/FFFFFF?text=Art",
-    },
-    {
-      id: "7",
-      title: "Introduction to Python Programming",
-      rating: 4.7,
-      price: 89.99,
-      imageUrl: "https://placehold.co/400x300/818CF8/FFFFFF?text=Code",
-    },
-    {
-      id: "8",
-      title: "American Literature Classics",
-      rating: 4.4,
-      price: 45.0,
-      imageUrl: "https://placehold.co/400x300/FBBF24/FFFFFF?text=Literature",
-    },
-    {
-      id: "9",
-      title: "Public Speaking Essentials",
-      rating: 4.8,
-      price: 29.99,
-      imageUrl: "https://placehold.co/400x300/A78BFA/FFFFFF?text=Speaking",
-    },
-  ];
-
   //component memory | state management
   const [currentPage, setCurrentPage] = useState(1);
   const [sortBy, setSortBy] = useState<"Instructor" | "Price">("Instructor");
@@ -108,13 +43,15 @@ export default function OtherCoursesPagination({
 
   //filter and sort courses based on search term and sortBy value
   const filteredAndSortedCourses = useMemo(() => {
-    return Courses.filter((Course) =>
-      Course.title.toLowerCase().includes(searchTerm.toLowerCase())
-    ).sort((a, b) => {
-      if (sortBy === "Instructor") return a.title.localeCompare(b.title);
-      if (sortBy === "Price") return a.price - b.price;
-      return 0;
-    });
+    return courses
+      .filter((Course) =>
+        Course.title.toLowerCase().includes(searchTerm.toLowerCase())
+      )
+      .sort((a, b) => {
+        if (sortBy === "Instructor") return a.title.localeCompare(b.title);
+        if (sortBy === "Price") return a.price - b.price;
+        return 0;
+      });
   }, [courses, sortBy, searchTerm]);
 
   // Calculate pagination variables from the memoized list
@@ -131,5 +68,38 @@ export default function OtherCoursesPagination({
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, [currentPage, sortBy]);
 
-  return <div></div>;
+  return (
+    <section className="flex flex-col">
+      <h2 className="text-24-100 font-semibold">
+        Other Courses For High School
+      </h2>
+
+      <div className="mt-4 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+        <div className="relative">
+          <Input
+            id="search-courses"
+            className="h-12.5 rounded-[5px] pr-28 md:pr-32"
+            placeholder="Search Class, Course"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
+          <Button
+            size="default"
+            variant="default"
+            className="absolute top-1/2 right-[5px] -translate-y-1/2"
+            aria-label="Search"
+          >
+            <SearchIcon className="mr-0 sm:mr-2" />
+            <span className="hidden sm:inline">Search</span>
+          </Button>
+        </div>
+        <SortBy value={sortBy} onChange={setSortBy}></SortBy>
+        <div>
+          {currentItems.map((course) => (
+            <OCourseCard key={course.id} course={course} />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
 }

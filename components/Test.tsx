@@ -165,40 +165,40 @@ export default function OtherCoursesPagination({
   );
 
   //   return (
-  //     <section>
-  //       <h2 className="text-30-100 font-semibold max-sm:hidden">
-  //         Other Courses For High School
-  //       </h2>
-  //       <h2 className="text-24-100 font-semibold sm:hidden">
-  //         Other Courses For High School
-  //       </h2>
-  //       <div className="relative flex items-center">
-  //         <Input
-  //           className="h-12.5 rounded-[5px]"
-  //           placeholder="Search Class, Course"
-  //         ></Input>
-  //         <Button
-  //           size="default"
-  //           variant="default"
-  //           className="absolute right-[5px] max-sm:hidden"
-  //         >
-  //           <SearchIcon /> Search
-  //         </Button>
-  //         <Button
-  //           size="default"
-  //           variant="default"
-  //           className="absolute right-[5px] sm:hidden"
-  //         >
-  //           <SearchIcon />
-  //         </Button>
-  //         <div className="mb-1 flex items-center justify-end gap-2 text-xs sm:text-sm">
-  //           <p className="-mt-20 md:mt-0">Sort by:</p>
-  //           {/* ✅ Use SortBy component */}
-  //           <SortBy value={sortBy} onChange={setSortBy} />
-  //         </div>
-  //         <SortBy value={sortBy} onChange={setSortBy} />
-  //       </div>
-  //     </section>
+      <section>
+        <h2 className="text-30-100 font-semibold max-sm:hidden">
+          Other Courses For High School
+        </h2>
+        <h2 className="text-24-100 font-semibold sm:hidden">
+          Other Courses For High School
+        </h2>
+        <div className="relative flex items-center">
+          <Input
+            className="h-12.5 rounded-[5px]"
+            placeholder="Search Class, Course"
+          ></Input>
+          <Button
+            size="default"
+            variant="default"
+            className="absolute right-[5px] max-sm:hidden"
+          >
+            <SearchIcon /> Search
+          </Button>
+          <Button
+            size="default"
+            variant="default"
+            className="absolute right-[5px] sm:hidden"
+          >
+            <SearchIcon />
+          </Button>
+          <div className="mb-1 flex items-center justify-end gap-2 text-xs sm:text-sm">
+            <p className="-mt-20 md:mt-0">Sort by:</p>
+            {/* ✅ Use SortBy component */}
+            <SortBy value={sortBy} onChange={setSortBy} />
+          </div>
+          <SortBy value={sortBy} onChange={setSortBy} />
+        </div>
+      </section>
   //   );
 }
 
