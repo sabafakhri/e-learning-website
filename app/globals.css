@@ -63,6 +63,9 @@ body {
   --text-16-26: 16px;
   --text-16-26--line-height: 26px;
 
+  --text-16-20: 16px;
+  --text-16-20--line-height: 20px;
+
   --text-14-30: 14px;
   --text-14-30--line-height: 30px;
 
@@ -80,6 +83,9 @@ body {
 
   --text-22-100: 22px;
   --text-22-100--line-height: 100%;
+
+  --text-25-100: 25px;
+  --text-25-100--line-height: 100%;
 }
 
 @theme inline {

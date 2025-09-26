@@ -21,12 +21,18 @@ const buttonVariants = cva(
           "hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50",
         link: "text-primary underline-offset-4 hover:underline",
         JoinAsATeacher:
-          "bg-purple-900 rounded-[5px] text-background dark:text-foreground hover:bg-purple-900/90",
-
+          "bg-purple-900 rounded-[5px] !text-background !dark:text-foreground hover:bg-purple-900/90",
         subscribe:
           "text-14-30 lg:text-16-30 bg-purple-900 rounded-[5px] text-background dark:text-foreground lg:rounded-r-[10px] sm:rounded-l-none transition-all duration-300 hover:bg-purple-900/90",
         classes:
-          "text-14-30 lg:text-16-20 bg-purple-900 rounded-[5px] text-background dark:text-foreground lg:rounded-[10px] transition-all duration-300 hover:bg-purple-900/90 px-7.5 py-5 font-normal",
+          "text-14-30 lg:text-16-20 bg-purple-900 rounded-[5px] text-background dark:text-foreground lg:rounded-[10px] transition-all duration-300 hover:bg-purple-900/90 px-7.5 py-5 font-normal text-background dark:text-foreground",
+        EducationSteps: "text-14-20 rounded-[5px] lg:text-16-20 font-medium ",
+        ClassDetails:
+          "border border-purple-900 !text-purple-900 font-medium text-16-20 text-center hover:bg-purple-900 hover:!text-background",
+        Lessons:
+          "text-14-20 bg-purple-900 rounded-[5px] !text-background !dark:text-foreground hover:bg-purple-900/90",
+        JoinCourses:
+          "p-3.75 text-14-30 text-purple-900 lg:text-16-20 bg-purple-300 rounded-[5px] dark:text-foreground lg:rounded-[10px] transition-all duration-300 hover:bg-purple-300/90 font-normal",
       },
       size: {
         default: "h-9 px-4 py-2 has-[>svg]:px-3",
@@ -36,6 +42,11 @@ const buttonVariants = cva(
         JoinAsATeacher: "h-12.5 w-fit px-5",
         subscribe: "h-12.5 w-full lg:h-15 sm:w-35.5",
         classes: "h-12.5 lg:h-15 w-40.5",
+        EducationSteps: "h-12.5 w-fit px-5",
+        ClassDetails: "h-[44px] w-40.5",
+        Lessons: "h-[50px] w-43.5",
+        JoinCourses: "h-11",
+        HomeHedear: "h-12.5",
       },
     },
     defaultVariants: {

@@ -1,9 +1,10 @@
 import Image from "next/image";
 import { Button } from "./ui/button";
+import { PatternOringe } from "./Pattern";
 
 export default function Classes() {
   return (
-    <section>
+    <section className="">
       <div className="flex flex-col items-center justify-center gap-3.75 px-5 py-10 text-center sm:gap-5">
         <h2 className="text-45-55 font-bold max-sm:hidden">
           High quality video, <br /> audio & live classes
@@ -22,7 +23,10 @@ export default function Classes() {
           Visit Courses
         </Button>
       </div>
-      <div className="relative m-auto my-10 rounded-[20px] border-10 border-white ring-20 ring-inset sm:max-w-216 sm:border-25 lg:max-w-265 lg:border-30">
+      <div className="relative m-auto my-10 rounded-[20px] border-10 border-white ring-20 ring-white ring-inset sm:max-w-216 sm:border-25 lg:max-w-265 lg:border-30">
+        <div className="absolute top-[-120px] right-[-100px] z-[-10] max-md:hidden">
+          <PatternOringe />
+        </div>
         <Image
           className="rounded-[20px]"
           src="/pexels-vanessa-garcia-6325959 1.svg"

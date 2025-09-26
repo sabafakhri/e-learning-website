@@ -19,11 +19,7 @@ export default function Subscribe() {
             className="peer text-14-30 lg:text-16-30 placeholder:text-background dark:placeholder:text-foreground h-12.5 rounded-[5px] border-none bg-white/20 font-medium sm:rounded-r-none sm:focus-visible:border-none sm:focus-visible:ring-0 lg:h-15 lg:rounded-l-[10px]"
             placeholder="enter your email"
           ></Input>
-          <Button
-            size="subscribe"
-            variant="subscribe"
-            className="text-14-30 lg:text-16-30"
-          >
+          <Button size="subscribe" variant="subscribe">
             Subscribe
           </Button>
         </div>
