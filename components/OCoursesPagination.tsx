@@ -69,32 +69,35 @@ export default function OtherCoursesPagination({
   }, [currentPage, sortBy]);
 
   return (
-    <section className="flex flex-col">
-      <h2 className="text-24-100 font-semibold">
+    <section className="flex flex-col gap-5">
+      <h2 className="text-24-100 font-semibold sm:text-30-100">
         Other Courses For High School
       </h2>
 
-      <div className="mt-4 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
-        <div className="relative">
-          <Input
-            id="search-courses"
-            className="h-12.5 rounded-[5px] pr-28 md:pr-32"
-            placeholder="Search Class, Course"
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-          />
-          <Button
-            size="default"
-            variant="default"
-            className="absolute top-1/2 right-[5px] -translate-y-1/2"
-            aria-label="Search"
-          >
-            <SearchIcon className="mr-0 sm:mr-2" />
-            <span className="hidden sm:inline">Search</span>
-          </Button>
+      <div className="mt-4 flex flex-col gap-5">
+        <div className="grid gap-5 sm:grid-cols-3">
+          <div className="relative sm:col-span-2">
+            <Input
+              id="search-courses"
+              className="h-12.5 rounded-[5px] pr-28 md:pr-32"
+              placeholder="Search Class, Course"
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+            />
+            <Button
+              size="default"
+              variant="default"
+              className="absolute top-1/2 right-[5px] -translate-y-1/2"
+              aria-label="Search"
+            >
+              <SearchIcon className="mr-0 sm:mr-2" />
+              <span className="hidden sm:inline">Search</span>
+            </Button>
+          </div>
+          <SortBy value={sortBy} onChange={setSortBy}></SortBy>
         </div>
-        <SortBy value={sortBy} onChange={setSortBy}></SortBy>
-        <div>
+
+        <div className="flex flex-col gap-2.5 sm:grid sm:grid-cols-2 sm:gap-x-10 sm:gap-y-7.5">
           {currentItems.map((course) => (
             <OCourseCard key={course.id} course={course} />
           ))}
