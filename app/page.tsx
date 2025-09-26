@@ -1,8 +1,8 @@
 import OtherCoursesPagination from "@/components/OCoursesPagination";
 import Subscribe from "@/components/Subscribe";
-import image14 from "@Image14.png";
-import image15 from "@Image15.png";
-import image16 from "@Image16.png";
+import image14 from "../data/images/01.png";
+import image15 from "../data/images/02.png";
+import image16 from "../data/images/03.png";
 import type { Course } from "@/types/types";
 
 export default function Home() {
@@ -10,14 +10,14 @@ export default function Home() {
     {
       id: "1",
       title: "Introduction to Algebra",
-      rating: 4.5,
+      rating: 4,
       price: 49.99,
       imageUrl: image14,
     },
     {
       id: "2",
       title: "World History: 1900-2000",
-      rating: 4.8,
+      rating: 3,
       price: 59.5,
       imageUrl: image15,
     },
