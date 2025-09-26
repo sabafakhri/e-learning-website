@@ -23,7 +23,7 @@ const PopularBooks = () => (
     <h2 className="text-2xl font-bold text-[var(--color-title)] mb-4">Popular Books</h2>
     <div className="flex flex-col gap-4">
       {books.map((book, idx) => (
-        <div key={idx} className="flex items-center bg-white rounded-lg p-4 gap-4 shadow-sm">
+        <div key={idx} className="flex items-center  rounded-lg p-4 gap-4 shadow-sm">
           <div className="w-16 h-16 flex-shrink-0 rounded-md overflow-hidden bg-[var(--color-gray-100)] flex items-center justify-center">
             <Image src={book.img} alt={book.title} width={64} height={64} className="object-cover" />
           </div>
