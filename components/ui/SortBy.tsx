@@ -17,9 +17,12 @@ import {
 
 export default function SortBy({ value, onChange }: SortByProps) {
   return (
-    <div className="h-9">
-    <Select onValueChange={(val) => onChange(val as "latest" | "Instructor" | "Price")}>
-      <SelectTrigger className="w-full">
+    <Select
+      onValueChange={(val) =>
+        onChange(val as "latest" | "Instructor" | "Price")
+      }
+    >
+      <SelectTrigger size="md" className="w-full">
         <SelectValue placeholder="Sort by: Latest" />
       </SelectTrigger>
       <SelectContent>
@@ -31,6 +34,5 @@ export default function SortBy({ value, onChange }: SortByProps) {
         </SelectGroup>
       </SelectContent>
     </Select>
-    </div>
   );
 }
