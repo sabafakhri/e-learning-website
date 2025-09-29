@@ -55,15 +55,16 @@ const AllBook = () => (
           key={idx}
           className="rounded-xl overflow-hidden shadow-sm dark:bg-[var(--secondary)] bg-white flex flex-col"
         >
-          {/* Book Image */}
-          <div className="relative w-full h-64">
-            <Image
-              src={book.img}
-              alt={book.title}
-              fill
-              className="object-cover"
-            />
-          </div>
+          
+             <div className="relative w-full h-64 flex items-center justify-center bg-gray-100">
+  <Image
+    src={book.img}
+    alt={book.title}
+    fill
+    className="object-contain object-center p-4"
+  />
+</div>
+
 
           {/* Book Info */}
           <div className="p-4 flex flex-col gap-2">
