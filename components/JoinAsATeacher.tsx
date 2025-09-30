@@ -1,3 +1,4 @@
+
 import Image from "next/image";
 import { Button } from "./ui/button";
 
@@ -5,7 +6,7 @@ const JoinAsATeacher = () => {
   return (
     <section className="mx-auto flex flex-col gap-5 px-[2.5vw] sm:max-w-[795px] sm:flex-row sm:gap-10 lg:max-w-[1090px]">
       <Image
-        className="mx-auto border-8 border-purple-50 sm:h-[433px] sm:w-1/2 lg:h-[521px]" // border used so the ailiasing won't happen
+        className="mx-auto sm:h-[433px] sm:w-1/2 lg:h-[521px]"
         src="/JoinAsATeacher.svg"
         alt="Next.js JoinAsATeachers"
         width={316}
