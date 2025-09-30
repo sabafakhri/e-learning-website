@@ -557,7 +557,7 @@ const StandardClasses = () => {
       <h2 className="text-30-100 mt-3 hidden font-semibold sm:block">
         Standard Classes
       </h2>
-      <div className="grid grid-cols-1 justify-between gap-9 sm:grid-cols-3 lg:grid-cols-4">
+      <div className="grid grid-cols-1 justify-between gap-[15px] max-sm:px-5 sm:grid-cols-3 sm:gap-10 lg:grid-cols-4">
         {currentLessons.map((item: LessonItem, index: number) => (
           <CardNumber
             key={index}
