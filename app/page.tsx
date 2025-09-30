@@ -1,9 +1,12 @@
-import OtherCoursesPagination from "@/components/OCoursesPagination";
-import Subscribe from "@/components/Subscribe";
 import image14 from "../data/images/01.png";
 import image15 from "../data/images/02.png";
 import image16 from "../data/images/03.png";
 import type { Course } from "@/types/types";
+import Classes from "@/components/Classes";
+import HomeHeader from "@/components/HomeHeader";
+import JoinAsATeacher from "@/components/JoinAsATeacher";
+import Lessons from "@/components/Lessons";
+import JoinCourses from "@/components/JoinCourses";
 
 export default function Home() {
   const Courses: Course[] = [
@@ -30,9 +33,14 @@ export default function Home() {
     },
   ];
   return (
-    <div className="flex flex-col gap-25">
-      <OtherCoursesPagination courses={Courses} />
-      <Subscribe />
-    </div>
+    <>
+      <HomeHeader />
+      <div className="flex flex-col gap-25">
+        <Classes />
+        <Lessons />
+        <JoinCourses />
+        <JoinAsATeacher />
+      </div>
+    </>
   );
 }

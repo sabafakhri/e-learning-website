@@ -49,6 +49,7 @@ const buttonVariants = cva(
         JoinCourses: "h-11",
         HomeHedear: "h-12.5",
         ShoppingBag: "size-8.5 sm:size-11",
+
       },
     },
     defaultVariants: {
