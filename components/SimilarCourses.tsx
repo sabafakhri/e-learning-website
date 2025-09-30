@@ -22,11 +22,10 @@ export default function SimilarCourses() {
     <section className="w-full py-12 bg-[#F6F4FA]">
       <div className="max-w-7xl mx-auto px-4">
         {/* Title */}
-        <h2 className="text-4xl font-bold mb-10 text-[#1D143C]">
-          Similar Courses
-        </h2>
-        {/* Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <h2 className="text-4xl font-bold mb-10 text-[#1D143C]">Similar Courses</h2>
+        
+        {/* Grid - 2x2 layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-[1320px]">
           {courses.map((course) => (
             <CourseCard key={course.id} course={course} />
           ))}
@@ -38,38 +37,57 @@ export default function SimilarCourses() {
 
 function CourseCard({ course }: { course: Course }) {
   return (
-    <Card className="flex items-center justify-between gap-6 bg-white rounded-2xl shadow-sm hover:shadow-md transition px-6 py-4 min-h-[120px]">
-      {/* Left: Image */}
-      <div className="relative w-36 h-24 flex-shrink-0 rounded-xl overflow-hidden">
-        <Image src={course.img} alt={course.title} fill className="object-cover" />
+    <Card 
+      className="flex items-center gap-4 bg-white shadow-sm hover:shadow-md transition p-4"
+      style={{
+        width: '620px',
+        height: '133px',
+        borderRadius: '10px'
+      }}
+    >
+      {/* Left Column: Image */}
+      <div className="relative w-24 h-20 flex-shrink-0 rounded-lg overflow-hidden">
+        <Image 
+          src={course.img} 
+          alt={course.title} 
+          fill 
+          className="object-cover" 
+        />
       </div>
 
-      {/* Center: Info */}
-      <div className="flex-1 flex flex-col justify-center min-w-0">
-        <h3 className="text-xl font-semibold text-[#1D143C] truncate">
-          {course.title}
-        </h3>
-        <div className="flex items-center gap-2 mt-1">
-          <span className="flex text-yellow-400 text-lg">
-            {Array.from({ length: 5 }).map((_, i) => (
-              <span key={i}>★</span>
-            ))}
-          </span>
+      {/* Right Column: Text Content */}
+      <div className="flex-1 flex flex-col justify-between h-full py-2">
+        <div>
+          <h3 className="text-lg font-semibold text-[#1D143C] mb-1 truncate">
+            {course.title}
+          </h3>
+          
+          {/* Rating */}
+          <div className="flex items-center mb-1">
+            <div className="flex text-yellow-400 text-sm">
+              {Array.from({ length: 5 }).map((_, i) => (
+                <span key={i}>★</span>
+              ))}
+            </div>
+          </div>
         </div>
-        <span className="text-[#F97373] font-bold text-xl mt-1">
-          ${course.price.toFixed(2)}
-        </span>
+        
+        {/* Bottom row: Price and Button */}
+        <div className="flex items-center justify-between">
+          <span className="text-[#FF6B52] font-bold text-lg">
+            ${course.price.toFixed(2)}
+          </span>
+          
+          <Button
+            size="icon"
+            className="rounded-lg bg-[#E5D9FF] hover:bg-[#D6BBFB] w-10 h-10"
+            variant="ghost"
+            aria-label="Add to cart"
+          >
+            <ShoppingBag className="text-[#8B5CF6]" size={18} />
+          </Button>
+        </div>
       </div>
-
-      {/* Right: Shopping Bag Button */}
-      <Button
-        size="icon"
-        className="rounded-xl bg-[#E9D7FE] hover:bg-[#D6BBFB]"
-        variant="ghost"
-        aria-label="Add to cart"
-      >
-        <ShoppingBag className="text-[#7C3AED]" size={24} />
-      </Button>
     </Card>
   );
 }
