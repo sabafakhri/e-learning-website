@@ -19,16 +19,16 @@ const Footer = () => {
             <LinkedinLogo />
           </div>
 
-          <p className="font-inter sm:text-sm">
+          <p className="font-inter text-gray-600 sm:text-sm">
             © <span className="font-metropolis">2021 Eduvi.co</span>
           </p>
-          <p className="text-16-26 text-muted-foreground sm:text-14-26">
+          <p className="text-16-26 sm:text-14-26 text-gray-600">
             Eduvi is a registered <br />
             trademark of Eduvi.co
           </p>
         </section>
         <section className="mt-5 grid grid-cols-2 gap-6 sm:mt-0 sm:w-4/5 sm:grid-cols-4 sm:gap-10">
-          <ul className="text-muted-foreground flex h-[243px] flex-col justify-between sm:order-2">
+          <ul className="flex h-[243px] flex-col justify-between text-gray-600 sm:order-2">
             <li className="font-inter text-22-100 text-foreground font-semibold sm:text-lg">
               Community
             </li>
@@ -40,7 +40,7 @@ const Footer = () => {
             <li>Teaching Center</li>
           </ul>
 
-          <ul className="text-muted-foreground flex h-[207px] flex-col justify-between sm:order-1">
+          <ul className="flex h-[207px] flex-col justify-between text-gray-600 sm:order-1">
             <li className="font-inter text-22-100 text-foreground font-semibold sm:text-lg">
               Courses
             </li>
@@ -51,7 +51,7 @@ const Footer = () => {
             <li>Offline Courses</li>
           </ul>
 
-          <ul className="text-muted-foreground flex h-[243px] flex-col justify-between sm:order-3">
+          <ul className="flex h-[243px] flex-col justify-between text-gray-600 sm:order-3">
             <li className="font-inter text-22-100 text-foreground font-semibold sm:text-lg">
               Quick links
             </li>
@@ -63,7 +63,7 @@ const Footer = () => {
             <li>Programs</li>
           </ul>
 
-          <ul className="text-muted-foreground flex h-[243px] flex-col justify-between sm:order-4">
+          <ul className="flex h-[243px] flex-col justify-between text-gray-600 sm:order-4">
             <li className="font-inter text-22-100 text-foreground font-semibold sm:text-lg">
               More
             </li>

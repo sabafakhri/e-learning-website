@@ -181,12 +181,12 @@ const Lessons = () => {
         intended to occur. It involves one or more students being taught by a
         teacher or instructor.
       </p>
-      <div className="no-scrollbar flex -space-x-3 overflow-x-auto sm:justify-center">
+      <div className="no-scrollbar mx-auto flex space-x-[15px] overflow-x-auto sm:space-x-5">
         {steps.map((step) => (
           <Button
             key={step}
-            variant="EducationSteps"
-            size="EducationSteps"
+            variant="hobberd"
+            size="hobberd"
             className={
               active === step
                 ? "text-background bg-orange-900 shadow-[0_4px_4px_rgba(0,0,0,0.25)]"
@@ -198,7 +198,7 @@ const Lessons = () => {
           </Button>
         ))}
       </div>
-      <div className="grid grid-cols-1 justify-between gap-9 sm:grid-cols-3 lg:grid-cols-4">
+      <div className="grid grid-cols-1 justify-between gap-9 max-sm:px-10 sm:grid-cols-3 lg:grid-cols-4">
         {lessonsData[active].map((item: LessonItem, index: number) => (
           <CardNumber
             key={index}
@@ -209,7 +209,7 @@ const Lessons = () => {
           />
         ))}
       </div>
-      <Button variant="Lessons" size="Lessons" className="mx-auto">
+      <Button variant="Lessons" size="Lessons" className="mx-auto mt-7.5">
         Visit More Classes
       </Button>
     </section>

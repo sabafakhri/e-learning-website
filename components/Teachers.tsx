@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button } from "./ui/button";
 import Teacher from "./Teacher";
 
@@ -13,6 +13,14 @@ type TeacherCategory =
 
 const Teachers = () => {
   const [active, setActive] = useState<TeacherCategory>("All Mentors");
+  const [windowWidth, setWindowWidth] = useState<number>(0);
+
+  useEffect(() => {
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   const categories: TeacherCategory[] = [
     "All Mentors",
@@ -126,14 +134,19 @@ const Teachers = () => {
       ? teachers
       : teachers.filter((t) => t.category === active);
 
+  const visibleTeachers = filteredTeachers.slice(
+    0,
+    windowWidth >= 1024 ? 12 : windowWidth >= 640 ? 9 : 4
+  );
+
   return (
-    <section className="flex flex-col gap-5 sm:mx-auto sm:max-w-[944px] lg:max-w-[1280px]">
-      <div className="no-scrollbar mb-8 flex space-x-[15px] overflow-x-auto px-[31px] sm:justify-between sm:space-x-5">
+    <section className="flex flex-col gap-5 max-sm:px-[15px] sm:mx-auto sm:max-w-[944px] lg:max-w-[1280px]">
+      <div className="no-scrollbar mb-8 flex space-x-[15px] overflow-x-auto sm:space-x-5">
         {categories.map((cat) => (
           <Button
             key={cat}
-            variant="EducationSteps"
-            size="EducationSteps"
+            variant="hobberd"
+            size="hobberd"
             onClick={() => setActive(cat)}
             className={
               active === cat
@@ -145,8 +158,8 @@ const Teachers = () => {
           </Button>
         ))}
       </div>
-      <div className="mx-auto grid grid-cols-1 justify-between gap-[15px] max-sm:px-10 sm:grid-cols-3 sm:gap-10 lg:grid-cols-4">
-        {filteredTeachers.map((teacher, index) => (
+      <div className="mx-auto grid grid-cols-1 justify-between gap-[15px] sm:grid-cols-3 sm:gap-x-10 lg:grid-cols-4">
+        {visibleTeachers.map((teacher, index) => (
           <Teacher
             key={index}
             image={teacher.image}

@@ -537,8 +537,8 @@ const StandardClasses = () => {
         {steps.map((step) => (
           <Button
             key={step}
-            variant="EducationSteps"
-            size="EducationSteps"
+            variant="hobberd"
+            size="hobberd"
             className={
               step === "More Courses"
                 ? active === step

@@ -28,25 +28,17 @@ function AccordionTrigger({
   children,
   ...props
 }: React.ComponentProps<typeof AccordionPrimitive.Trigger>) {
-  const [open, setOpen] = React.useState(false);
-
   return (
-    <AccordionPrimitive.Header className="flex">
+    <AccordionPrimitive.Header className="flex w-full">
       <AccordionPrimitive.Trigger
         className={cn(
-          "focus-visible:ring-ring flex flex-1 items-center justify-between gap-4 py-4 text-left transition-all outline-none focus-visible:ring-2",
+          "group focus-visible:ring-ring flex flex-1 items-center justify-between gap-4 py-4 text-left transition-all outline-none focus-visible:ring-2",
           className
         )}
         {...props}
-        onClick={() => setOpen(!open)}
       >
         {children}
-        <span
-          className={cn(
-            "inline-block font-bold transition-transform duration-200",
-            open ? "rotate-180" : "rotate-0"
-          )}
-        >
+        <span className="inline-block font-bold transition-transform duration-200 group-data-[state-closed]:rotate-0 group-data-[state=open]:rotate-180">
           ⌄
         </span>
       </AccordionPrimitive.Trigger>
@@ -61,7 +53,10 @@ function AccordionContent({
 }: React.ComponentProps<typeof AccordionPrimitive.Content>) {
   return (
     <AccordionPrimitive.Content
-      className="data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down overflow-hidden text-sm"
+      className={cn(
+        "data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down overflow-hidden text-sm",
+        className
+      )}
       {...props}
     >
       <div className={cn("pt-0 pb-4", className)}>{children}</div>
