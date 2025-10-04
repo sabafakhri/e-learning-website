@@ -541,13 +541,13 @@ const StandardClasses = () => {
               key={step}
               variant="hobberd"
               size="hobberd"
-              className={`flex-shrink-0 ${
+              className={
                 active === step
                   ? "text-background bg-orange-900 shadow-[0_4px_4px_rgba(0,0,0,0.25)]"
                   : step === "More Courses"
                     ? "bg-background text-purple-900"
                     : "bg-background"
-              }`}
+              }
               onClick={() => setActive(step)}
             >
               {step}
