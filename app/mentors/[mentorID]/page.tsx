@@ -1,1 +1,5 @@
-export default function Mentor() {}
+import MentorHeader from "@/components/MentorHeader";
+
+export default function Mentor() {
+  return <MentorHeader />;
+}
