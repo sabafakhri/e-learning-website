@@ -3,6 +3,7 @@ import { useState } from "react";
 import CardNumber from "./CardNumber";
 import { Eight, Five, Four, One, Seven, Six, Three, Two } from "./icons";
 import { Button } from "./ui/button";
+import { ScrollArea, ScrollBar } from "./ui/scroll-area";
 
 const Lessons = () => {
   type LessonItem = {
@@ -181,23 +182,26 @@ const Lessons = () => {
         intended to occur. It involves one or more students being taught by a
         teacher or instructor.
       </p>
-      <div className="no-scrollbar mx-auto flex space-x-[15px] overflow-x-auto sm:space-x-5">
-        {steps.map((step) => (
-          <Button
-            key={step}
-            variant="hobberd"
-            size="hobberd"
-            className={
-              active === step
-                ? "text-background bg-orange-900 shadow-[0_4px_4px_rgba(0,0,0,0.25)]"
-                : ""
-            }
-            onClick={() => setActive(step)}
-          >
-            {step}
-          </Button>
-        ))}
-      </div>
+      <ScrollArea className="max-w-[90vw] whitespace-nowrap">
+        <div className="mx-auto flex w-max space-x-4 py-4">
+          {steps.map((step) => (
+            <Button
+              key={step}
+              variant="hobberd"
+              size="hobberd"
+              className={
+                active === step
+                  ? "text-background bg-orange-900 shadow-[0_4px_4px_rgba(0,0,0,0.25)]"
+                  : ""
+              }
+              onClick={() => setActive(step)}
+            >
+              {step}
+            </Button>
+          ))}
+        </div>
+        <ScrollBar orientation="horizontal" />
+      </ScrollArea>
       <div className="grid grid-cols-1 justify-between gap-9 max-sm:px-10 sm:grid-cols-3 lg:grid-cols-4">
         {lessonsData[active].map((item: LessonItem, index: number) => (
           <CardNumber

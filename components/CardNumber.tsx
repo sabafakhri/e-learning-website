@@ -26,7 +26,7 @@ const CardNumber = ({ title, description, action, icon }: CardProps) => {
         </CardTitle>
       </CardHeader>
       <CardContent>
-        <CardDescription className="text-16-30 px-7 text-center">
+        <CardDescription className="text-16-30 px-[2.22vw] text-center">
           {description}
         </CardDescription>
       </CardContent>

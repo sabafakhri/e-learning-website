@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { Button } from "./ui/button";
 import Teacher from "./Teacher";
+import { ScrollArea, ScrollBar } from "./ui/scroll-area";
 
 type TeacherCategory =
   | "All Mentors"
@@ -141,23 +142,26 @@ const Teachers = () => {
 
   return (
     <section className="flex flex-col gap-5 max-sm:px-[15px] sm:mx-auto sm:max-w-[944px] lg:max-w-[1280px]">
-      <div className="no-scrollbar mb-8 flex space-x-[15px] overflow-x-auto sm:space-x-5">
-        {categories.map((cat) => (
-          <Button
-            key={cat}
-            variant="hobberd"
-            size="hobberd"
-            onClick={() => setActive(cat)}
-            className={
-              active === cat
-                ? "text-background bg-orange-900 shadow-[0_4px_4px_rgba(0,0,0,0.25)]"
-                : "bg-background"
-            }
-          >
-            {cat}
-          </Button>
-        ))}
-      </div>
+      <ScrollArea className="max-w-[90vw] whitespace-nowrap">
+        <div className="flex w-max space-x-4 py-4">
+          {categories.map((cat) => (
+            <Button
+              key={cat}
+              variant="hobberd"
+              size="hobberd"
+              onClick={() => setActive(cat)}
+              className={
+                active === cat
+                  ? "text-background bg-orange-900 shadow-[0_4px_4px_rgba(0,0,0,0.25)]"
+                  : "bg-background"
+              }
+            >
+              {cat}
+            </Button>
+          ))}
+        </div>
+        <ScrollBar orientation="horizontal" />
+      </ScrollArea>
       <div className="mx-auto grid grid-cols-1 justify-between gap-[15px] sm:grid-cols-3 sm:gap-x-10 lg:grid-cols-4">
         {visibleTeachers.map((teacher, index) => (
           <Teacher
