@@ -1,12 +1,14 @@
 import OurMentorHeaders from '@/components/OurMentorHeaders'
-import React from 'react'
+import Teachers from "@/components/Teachers";
 
 const page = () => {
   return (
     <div>
       <OurMentorHeaders />
+       <Teachers/>
     </div>
   )
 }
 
 export default page
+

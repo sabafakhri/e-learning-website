@@ -15,6 +15,7 @@ import {
 } from "./icons";
 import { Button } from "./ui/button";
 import CardNumber from "./CardNumber";
+import { ScrollArea, ScrollBar } from "./ui/scroll-area";
 
 const StandardClasses = () => {
   const [windowWidth, setWindowWidth] = useState<number>(0);
@@ -533,31 +534,32 @@ const StandardClasses = () => {
       : lessonsData[active].slice(0, maxItems);
   return (
     <section className="flex flex-col gap-5 sm:mx-auto sm:max-w-[944px] lg:max-w-[1280px]">
-      <div className="no-scrollbar flex space-x-2 overflow-x-auto sm:justify-between sm:space-x-5">
-        {steps.map((step) => (
-          <Button
-            key={step}
-            variant="EducationSteps"
-            size="EducationSteps"
-            className={
-              step === "More Courses"
-                ? active === step
+      <ScrollArea className="max-w-[90vw] whitespace-nowrap">
+        <div className="flex w-max space-x-4 p-4">
+          {steps.map((step) => (
+            <Button
+              key={step}
+              variant="hobberd"
+              size="hobberd"
+              className={
+                active === step
                   ? "text-background bg-orange-900 shadow-[0_4px_4px_rgba(0,0,0,0.25)]"
-                  : "bg-background text-purple-900"
-                : active === step
-                  ? "text-background bg-orange-900 shadow-[0_4px_4px_rgba(0,0,0,0.25)]"
-                  : "bg-background"
-            }
-            onClick={() => setActive(step)}
-          >
-            {step}
-          </Button>
-        ))}
-      </div>
+                  : step === "More Courses"
+                    ? "bg-background text-purple-900"
+                    : "bg-background"
+              }
+              onClick={() => setActive(step)}
+            >
+              {step}
+            </Button>
+          ))}
+        </div>
+        <ScrollBar orientation="horizontal" />
+      </ScrollArea>
       <h2 className="text-30-100 mt-3 hidden font-semibold sm:block">
         Standard Classes
       </h2>
-      <div className="grid grid-cols-1 justify-between gap-[15px] max-sm:px-5 sm:grid-cols-3 sm:gap-10 lg:grid-cols-4">
+      <div className="grid grid-cols-1 gap-[15px] max-sm:px-5 sm:grid-cols-3 sm:gap-10 lg:grid-cols-4">
         {currentLessons.map((item: LessonItem, index: number) => (
           <CardNumber
             key={index}

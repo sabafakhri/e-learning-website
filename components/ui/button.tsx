@@ -26,7 +26,7 @@ const buttonVariants = cva(
           "text-14-30 lg:text-16-30 bg-purple-900 rounded-[5px] text-background dark:text-foreground lg:rounded-r-[10px] sm:rounded-l-none transition-all duration-300 hover:bg-purple-900/90",
         classes:
           "text-14-30 lg:text-16-20 bg-purple-900 rounded-[5px] text-background dark:text-foreground lg:rounded-[10px] transition-all duration-300 hover:bg-purple-900/90 px-7.5 py-5 font-normal text-background dark:text-foreground",
-        EducationSteps: "text-14-20 rounded-[5px] lg:text-16-20 font-medium ",
+        hobberd: "text-14-20 rounded-[5px] lg:text-16-20 font-medium ",
         ClassDetails:
           "border border-purple-900 !text-purple-900 font-medium text-16-20 text-center hover:bg-purple-900 hover:!text-background",
         Lessons:
@@ -43,13 +43,12 @@ const buttonVariants = cva(
         JoinAsATeacher: "h-12.5 w-fit px-5",
         subscribe: "h-12.5 w-full lg:h-15 sm:w-35.5",
         classes: "h-12.5 lg:h-15 w-40.5",
-        EducationSteps: "h-12.5 w-fit px-5",
+        hobberd: "h-12.5 w-fit px-5",
         ClassDetails: "h-[44px] w-40.5",
         Lessons: "h-[50px] w-43.5",
         JoinCourses: "h-11",
         HomeHedear: "h-12.5",
         ShoppingBag: "size-8.5 sm:size-11",
-
       },
     },
     defaultVariants: {
