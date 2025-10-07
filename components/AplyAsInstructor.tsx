@@ -23,40 +23,30 @@ export default function AplyAsInstructor() {
   const [activeTab, setActiveTab] = useState("requirements");
 
   return (
-    <section className="w-full py-16 bg-[#F6F4FA]">
-      <div className="max-w-7xl mx-auto px-4">
-        <div className="bg-white shadow-lg overflow-hidden">
-          <div className="flex flex-col lg:flex-row">
-            {/* Left side - Image */}
-            <div className="lg:w-1/2 bg-[#FFE4DE] p-8 flex items-start justify-center relative overflow-visible">
-              <div 
-                className="relative bg-[#FFE4DE] rounded-[15px] overflow-hidden"
-                style={{
-                  width: '510px',
-                  height: '620px',
-                }}
-              >
+    <section className="w-full py-10 md:py-16 ">
+      <div className="max-w-7xl mx-auto px-5 md:px-4">
+        <div className="  overflow-hidden md:pb-0">
+          <div className="flex flex-col lg:flex-row ">
+            {/* Image Block */}
+            <div className="order-1 lg:order-1 lg:w-1/2 flex justify-center md:justify-start bg-transparent md:bg-transparent p-2 md:py-10">
+              <div className="relative bg-[#FFE4DE] rounded-[15px]  w-[335px] h-[362px] md:w-[510px] md:h-[620px]">
                 <Image
                   src="/front-view-male-student-red-checkered-shirt-with-backpack-holding-felt-pens-copybook-light-blue-wall 3.png"
                   alt="Instructor with notebook and pens"
                   fill
-                  className="object-contain object-top"
-                  priority
+                  className="object-contain object-top    w-[443px] h-[585px] top-[465px] left-[174px] rotate-[0deg] opacity-100"
+            
                 />
               </div>
             </div>
 
-            {/* Right side - Content */}
-            <div className="lg:w-1/2 p-8 lg:p-12 flex flex-col justify-center">
-              <h2 className="text-4xl font-bold text-[#1a1625] mb-6">
+            {/* Content Block */}
+            <div className="order-2 lg:order-2 lg:w-1/2 px-2 pt-8 md:p-12 flex flex-col justify-start md:justify-center">
+              <h2 className="text-[28px] leading-8 md:text-4xl font-bold  mb-5 md:mb-6 tracking-tight">
                 Apply As Instructor
               </h2>
-              
-              <p className="text-gray-600 text-base leading-relaxed mb-8">
-                Teaching is a vital and admirable career. As such, it comes with quite a bit of 
-                responsibility, both in practice and in preparation with many skills required to 
-                be a teacher. The following steps provide a general breakdown of the 
-                requirements for teachers:
+              <p className="text-gray-600 text-[14px] leading-[26px] md:text-base md:leading-relaxed mb-6 md:mb-8">
+                Teaching is a vital and admirable career. As such, it comes with quite a bit of responsibility, both in practice and in preparation with many skills required to be a teacher. The following steps provide a general breakdown of the requirements for teachers:
               </p>
 
               {/* Tabs */}
@@ -101,7 +91,7 @@ export default function AplyAsInstructor() {
                     {rules.map((rule, index) => (
                       <li key={index} className="flex items-start gap-3">
                         <div className="w-2 h-2 rounded-full bg-[#ff6652] mt-2 flex-shrink-0"></div>
-                        <span className="text-gray-800 leading-relaxed">{rule}</span>
+                        <span className=" leading-relaxed">{rule}</span>
                       </li>
                     ))}
                   </ul>
@@ -109,7 +99,10 @@ export default function AplyAsInstructor() {
               </Tabs>
 
               {/* Apply Button */}
-              <Button className="mt-8 bg-[#9c4df4] hover:bg-[#8b42e0] text-white px-8 py-3 rounded-xl font-medium text-base w-fit">
+              <Button
+                className="my-8 md:mt-8 bg-[#9c4df4] hover:bg-[#8b42e0] text-white w-[143px] h-[54px] rounded-[10px] font-medium text-base flex items-center justify-center"
+                style={{ opacity: 1 }}
+              >
                 Apply Now
               </Button>
             </div>

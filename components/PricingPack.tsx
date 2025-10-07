@@ -17,39 +17,50 @@ type PricingPackProps = {
 
 const PricingPack = ({ title, features, price }: PricingPackProps) => {
   return (
-    <Card className="w-[400px] h-[640px] rounded-2xl border border-[var(--color-gray-300)] shadow-sm flex flex-col">
-      <CardHeader className="flex flex-col items-start py-8 px-6 min-h-[90px]">
-        <img src="/price-tag.svg" alt="price tag" className="w-7 h-7" />
-        <CardTitle className="text-2xl font-bold mt-2 self-start">{title}</CardTitle>
+    <Card className="w-[360px] rounded-2xl border border-gray-200 shadow-sm flex flex-col bg-white hover:shadow-lg transition-all duration-300">
+      {/* Header */}
+      <CardHeader className="flex flex-col items-start py-8 px-8">
+        <img src="/price-tag.svg" alt="price tag" className="w-8 h-8 mb-2" />
+        <CardTitle className="text-2xl font-extrabold text-gray-800">{title}</CardTitle>
       </CardHeader>
 
-      <div className="w-full h-px bg-[var(--color-gray-300)]" />
+      {/* Divider */}
+      <div className="w-full h-px bg-gray-200" />
 
-      <CardContent className="space-y-3 flex-1 flex flex-col justify-between">
-        {features.map((feature, idx) => (
-          <div key={idx} className="flex items-center gap-3">
-            {feature.active ? (
-              <CheckCircle className="text-[var(--color-green-tick)] h-5 w-5" />
-            ) : (
-              <XCircle className="text-[var(--color-orange-900)] h-5 w-5" />
-            )}
-            <span
-              style={{
-                color: feature.active ? "var(--color-foreground)" : "var(--color-gray-600)",
-                fontWeight: feature.active ? 700 : 400,
-              }}
-            >
-              {feature.label}
-            </span>
-          </div>
-        ))}
-        <p className="text-2xl font-bold mt-4">{price}</p>
+      {/* Features */}
+      <CardContent className="px-8 py-6 flex-1">
+        <div className="space-y-4">
+          {features.map((feature, idx) => (
+            <div key={idx} className="flex items-center gap-3 text-left">
+              {feature.active ? (
+                <CheckCircle className="text-green-500 h-5 w-5" />
+              ) : (
+                <XCircle className="text-red-400 h-5 w-5" />
+              )}
+              <span
+                className={`text-[15px] ${
+                  feature.active ? "text-gray-900 font-medium" : "text-gray-500"
+                }`}
+              >
+                {feature.label}
+              </span>
+            </div>
+          ))}
+        </div>
+
+        <p className="text-3xl font-bold mt-8 text-gray-900">{price}</p>
       </CardContent>
 
-      <CardFooter>
+      {/* Footer */}
+      <CardFooter className="pb-8">
         <Button
           variant="outline"
-          className="w-[220px] h-[2.5rem] mx-auto border border-[var(--color-purple-900)] text-[var(--color-purple-900)] hover:bg-[var(--color-purple-900)] hover:text-white hover:shadow-lg hover:border-[var(--color-purple-900)]"
+          className="
+            w-[260px] h-[2.8rem] mx-auto font-semibold text-[16px]
+            border border-purple-600 text-purple-700
+            hover:bg-purple-700 hover:text-white hover:shadow-md
+            transition-all duration-300
+          "
         >
           Purchase Course
         </Button>
@@ -57,6 +68,10 @@ const PricingPack = ({ title, features, price }: PricingPackProps) => {
     </Card>
   );
 };
+
+// ----------------------
+// Parent Section
+// ----------------------
 
 const pricingData = [
   {
@@ -75,13 +90,13 @@ const pricingData = [
   },
   {
     title: "Standard Pack",
-    price: "$350",
+    price: "$600",
     features: [
-      { label: "10 HD video lessons & tutorials", active: true },
-      { label: "3 Official exams", active: true },
-      { label: "300 Practice questions", active: true },
-      { label: "3 Month subscriptions", active: true },
-      { label: "2 Free books", active: true },
+      { label: "8 HD video lessons & tutorials", active: true },
+      { label: "2 Official exam", active: true },
+      { label: "200 Practice questions", active: true },
+      { label: "1 Month subscriptions", active: true },
+      { label: "3 Free books", active: true },
       { label: "Practice quizzes & assignments", active: true },
       { label: "In depth explanations", active: false },
       { label: "Personal instructor Assistance", active: false },
@@ -89,12 +104,12 @@ const pricingData = [
   },
   {
     title: "Premium Pack",
-    price: "$500",
+    price: "$1200",
     features: [
-      { label: "All video lessons & tutorials", active: true },
-      { label: "Unlimited Official exams", active: true },
-      { label: "All Practice questions", active: true },
-      { label: "12 Month subscriptions", active: true },
+      { label: "15 HD video lessons & tutorials", active: true },
+      { label: "3 Official exam", active: true },
+      { label: "300 Practice questions", active: true },
+      { label: "1 Month subscriptions", active: true },
       { label: "5 Free books", active: true },
       { label: "Practice quizzes & assignments", active: true },
       { label: "In depth explanations", active: true },
@@ -104,36 +119,16 @@ const pricingData = [
 ];
 
 const PricingPackList = () => (
-  <section className="flex flex-col items-center justify-center text-center mt-10">
-    <h2 className="block md:hidden text-3xl font-extrabold  max-w-2xl">
+  <section className="flex flex-col items-center justify-center text-center mt-12">
+    <h2 className="text-3xl md:text-4xl font-extrabold max-w-3xl mx-auto">
       We create a monthly pricing package for all standard students
     </h2>
 
-    <p className="block md:hidden text-lg mt-4 text-[var(--color-gray-600)] max-w-xl">
-      Basically we create this package for those who are really interested and get
-      benifited from our courses or books.
+    <p className="text-lg md:text-xl mt-4 text-gray-600 max-w-2xl mx-auto">
+      Basically we create this package for those who are really interested and get benefited from our courses or books.
     </p>
 
-
-    <h2 className="hidden md:block text-3xl md:text-4xl font-extrabold  max-w-4xl mx-auto text-center">
-      We create a monthly pricing package for all standard students
-    </h2>
-
-    <p className="hidden md:block text-lg md:text-xl mt-4 text-[var(--color-gray-600)] max-w-3xl mx-auto text-center">
-      Basically we create this package for those who are really interested and get
-      benifited from our courses or books. We want to make a low cost package for
-      them. So that they can purchase any courses with the package they buy from us.
-      Also will get free books from every packages.
-    </p>
-
-    <div
-      className="
-        grid grid-cols-1 gap-6 mt-16 mb-20
-        sm:grid-cols-2
-        lg:grid-cols-3
-        place-items-center
-      "
-    >
+    <div className="grid grid-cols-1 gap-8 mt-16 mb-20 sm:grid-cols-2 lg:grid-cols-3 place-items-center">
       {pricingData.map((pack, idx) => (
         <PricingPack key={idx} {...pack} />
       ))}
