@@ -9,6 +9,11 @@ body {
 
 @theme {
   /* colors */
+  --color-purple-50: #f7f5fa;
+
+  /* dark */
+  --color-dark: #1a1625;
+
   /* Purple */
   --color-purple-900: #9c4df4;
   --color-purple-800: #954ae9;
@@ -51,8 +56,14 @@ body {
   --text-35-40: 35px;
   --text-35-40--line-height: 40px;
 
+  --text-30-100: 30px;
+  --text-30-100--line-height: 100%;
+
   --text-28-32: 28px;
   --text-28-32--line-height: 32px;
+
+  --text-24-100: 24px;
+  --text-24-100--line-height: 100%;
 
   --text-16-30: 16px;
   --text-16-30--line-height: 30px;
@@ -86,6 +97,9 @@ body {
 
   --text-25-100: 25px;
   --text-25-100--line-height: 100%;
+
+  --text-30-100: 30px;
+  --text-30-100--line-height: 100%;
 }
 
 @theme inline {
@@ -141,7 +155,7 @@ body {
   --card-foreground: oklch(0.145 0 0);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
+  --primary: #9c4df4;
   --primary-foreground: oklch(0.985 0 0);
   --secondary: oklch(0.97 0 0);
   --secondary-foreground: oklch(0.205 0 0);
@@ -211,9 +225,6 @@ body {
     @apply text-foreground dark:bg-dark bg-purple-50;
   }
 
-  Button {
-    @apply font-inter;
-  }
 }
 
 /* metropolis-latin-100-normal */
