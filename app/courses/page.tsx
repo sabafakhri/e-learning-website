@@ -5,6 +5,9 @@ import type { Course } from "@/types/types";
 import StandardClasses from "@/components/StandardClasses";
 import OtherCoursesPagination from "@/components/OCoursesPagination";
 
+import CoursesHeader from "@/components/CoursesHeader";
+
+
 export default function Courses() {
   const Courses: Course[] = [
     {
@@ -31,8 +34,11 @@ export default function Courses() {
   ];
   return (
     <div className="flex flex-col gap-12.5">
+
+      <CoursesHeader />
       <StandardClasses />
       <OtherCoursesPagination courses={Courses} />
     </div>
   );
 }
+

@@ -1,6 +1,14 @@
+import OurMentorHeaders from '@/components/OurMentorHeaders'
 import Teachers from "@/components/Teachers";
 
-
-export default function OurMentors() {
-    return <Teachers/>
+const page = () => {
+  return (
+    <div>
+      <OurMentorHeaders />
+       <Teachers/>
+    </div>
+  )
 }
+
+export default page
+
