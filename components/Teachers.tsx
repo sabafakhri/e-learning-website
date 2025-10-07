@@ -142,7 +142,7 @@ const Teachers = () => {
 
   return (
     <section className="flex flex-col gap-5 max-sm:px-[15px] sm:mx-auto sm:max-w-[944px] lg:max-w-[1280px]">
-      <ScrollArea className="max-w-[90vw] whitespace-nowrap">
+      <ScrollArea className="mb-1 max-w-[90vw] whitespace-nowrap md:mb-6">
         <div className="flex w-max space-x-4 py-4">
           {categories.map((cat) => (
             <Button
