@@ -6,9 +6,7 @@
     "dev": "next dev --turbopack",
     "build": "next build --turbopack",
     "start": "next start",
-    "lint": "eslint"
-  },
-  "prisma": {
+    "lint": "eslint",
     "seed": "ts-node --esm prisma/seed.ts"
   },
   "dependencies": {

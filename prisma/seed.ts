@@ -1,17 +1,20 @@
-import { prisma } from "../lib/prisma-simple";
+import { PrismaClient } from "../lib/generated/prisma/index.js";
+
+const prisma = new PrismaClient();
 
 async function main() {
-  await prisma.user.create({
-    data: { name: "Zahra", email: "zahra@example.com" },
+  const user = await prisma.user.create({
+    data: { name: "Leyla", email: "Leyla@example.com" },
   });
-  console.log("User created ✅");
+  console.log("✅ User created!");
+
+  const country = await prisma.country.create({
+    data: { name: "Iraq" },
+  });
+
+  console.log("✅ Country created!");
 }
 
 main()
-  .catch((e) => {
-    console.error(e);
-    process.exit(1);
-  })
-  .finally(async () => {
-    await prisma.$disconnect();
-  });
+  .catch((e) => console.error(e))
+  .finally(async () => await prisma.$disconnect());
