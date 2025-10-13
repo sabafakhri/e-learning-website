@@ -71,7 +71,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
     <>
       <div className="flex flex-col gap-x-10 gap-y-7.5 sm:flex-row-reverse">
         <div className="flex flex-col gap-5 sm:h-fit sm:w-100">
-          <ul className="text-16-100 flex flex-col gap-6.25 rounded-[10px] bg-white px-5 py-7.5 font-semibold dark:bg-black">
+          <ul className="text-16-100 flex flex-col gap-5 rounded-[10px] bg-white px-5 py-7.5 font-semibold sm:gap-6.25 dark:bg-black">
             <li className="flex justify-between">
               <p className="text-gray-600 dark:text-white/70">Total Course</p>
               <p className="text-20-100 text-orange-900">
