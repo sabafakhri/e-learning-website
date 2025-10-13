@@ -52,17 +52,11 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
           </li>
           <li className="flex justify-between">
             <p className="text-gray-600 dark:text-white/70">Ratings</p>
-            <p className="text-yellow-400">
-              <div className="flex gap-0.75">
-                {Array(5)
-                  .fill(0)
-                  .map((_, i) => (
-                    <span key={i} className="text-sm">
-                      {i < mentor.Rating ? <Star /> : <StarOutline />}
-                    </span>
-                  ))}
-              </div>
-            </p>
+            <div className="flex gap-0.75">
+              <Star />
+              {mentor.Rating} (
+              <span className="text-orange-900">{mentor.TotalVotes}</span>)
+            </div>
           </li>
           <li className="flex justify-between">
             <p className="text-gray-600 dark:text-white/70">Experiences</p>
@@ -95,8 +89,8 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
         </ul>
       </div>
       <div className="flex flex-1 flex-col gap-7.5">
-        <div className="flex justify-between pl-80">
-          <div>
+        <div className="relative flex justify-end">
+          <div className="text-30-100 absolute top-0 left-[220] font-medium">
             {mentor.Name} <br /> <span>{mentor.Position}</span>
           </div>
           <Button className="h-12.5 rounded-[5px] sm:h-15">Contact Now</Button>
