@@ -1,13 +1,13 @@
 import React from "react";
-import { Star, StarOutline } from "./icons/Icons";
-import { Button } from "./ui/button";
-import Description from "./Description";
 import {
+  Star,
   FacebookLogo,
   InstagramLogo,
   LinkedinLogo,
   TwitterLogo,
-} from "./icons";
+} from "./icons/Icons";
+import { Button } from "./ui/button";
+import Description from "./Description";
 
 export default function MentorDetails() {
   const mentor = {

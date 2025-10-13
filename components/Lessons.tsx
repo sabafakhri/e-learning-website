@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import CardNumber from "./CardNumber";
-import { Eight, Five, Four, One, Seven, Six, Three, Two } from "./icons";
+import { Eight, Five, Four, One, Seven, Six, Three, Two } from "./icons/Icons";
 import { Button } from "./ui/button";
 import { ScrollArea, ScrollBar } from "./ui/scroll-area";
 

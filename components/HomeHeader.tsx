@@ -8,7 +8,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "./ui/select";
-import SearchIcon from "./icons";
+import SearchIcon from "./icons/Icons";
 
 export default function HomeHeader() {
   return (

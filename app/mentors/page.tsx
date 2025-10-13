@@ -1,14 +1,13 @@
-import OurMentorHeaders from '@/components/OurMentorHeaders'
+import OurMentorHeaders from "@/components/OurMentorHeaders";
 import Teachers from "@/components/Teachers";
 
 const page = () => {
   return (
     <div>
       <OurMentorHeaders />
-       <Teachers/>
+      <Teachers />
     </div>
-  )
-}
+  );
+};
 
-export default page
-
+export default page;

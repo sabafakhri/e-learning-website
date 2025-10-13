@@ -4,7 +4,7 @@ import {
   InstagramLogo,
   LinkedinLogo,
   TwitterLogo,
-} from "./icons";
+} from "./icons/Icons";
 
 const Footer = () => {
   return (

@@ -18,12 +18,12 @@ const OurMentorHeaders = () => {
               <span className="mx-2 text-gray-400">|</span>
               <Link
                 href="/mentors"
-                className="cursor-pointer text-[#7C3AED] transition-all hover:text-[#6D28D9] hover:drop-shadow-lg"
+                className="text-primary cursor-pointer transition-all hover:text-[#6D28D9] hover:drop-shadow-lg"
               >
                 Our Mentors
               </Link>
             </nav>
-            <h1 className="text-[38px] leading-[46px] font-bold text-[#0A033C] md:text-[64px] md:leading-[72px]">
+            <h1 className="text-38-46 font-bold text-gray-900 md:text-[64px] md:leading-[72px]">
               Eduvi has the
               <br className="hidden md:block" />
               qualified mentors
