@@ -12,7 +12,7 @@ import {
   Ten,
   Three,
   Two,
-} from "./icons";
+} from "./icons/Icons";
 import { Button } from "./ui/button";
 import CardNumber from "./CardNumber";
 import { ScrollArea, ScrollBar } from "./ui/scroll-area";

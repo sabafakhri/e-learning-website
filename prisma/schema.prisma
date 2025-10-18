@@ -14,15 +14,228 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+// -----------------------------
+// ENUMS
+// -----------------------------
+enum EducationLevel {
+  KINDERGARTEN
+  HIGH_SCHOOL
+  COLLEGE
+}
 
+enum LessonCategory {
+  KINDERGARTEN
+  HIGH_SCHOOL
+  COLLEGE
+}
+
+// -----------------------------
+// USER MODEL
+// -----------------------------
 model User {
-  id    Int    @id @default(autoincrement())
+  id        String   @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  email     String   @unique
+  password  String
+  fullName  String
+  phone     String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relations
+  cart      Cart?
+  favorites Favorite[]
+  orders    Order[]
+  reviews   Review[]
+}
+
+// -----------------------------
+// MENTOR MODELS
+// -----------------------------
+model Mentor {
+  id            Int          @id @default(autoincrement())
+  name          String
+  position      String
+  totalCourse   Int
+  rating        Float
+  totalVotes    Int
+  experiences   Int
+  graduated     Boolean
+  about         String
+  certification String
+  languageLinks MentorLanguage[]
+  socialLinks   SocialLinks?
+  courses       Course[]
+  createdAt     DateTime     @default(now())
+}
+
+model Language {
+  id       Int              @id @default(autoincrement())
+  name     String           @unique
+  mentors  MentorLanguage[]
+}
+
+model MentorLanguage {
+  mentorId   Int
+  languageId Int
+  mentor     Mentor   @relation(fields: [mentorId], references: [id])
+  language   Language @relation(fields: [languageId], references: [id])
+
+  @@id([mentorId, languageId])
+}
+
+model SocialLinks {
+  id         Int     @id @default(autoincrement())
+  facebook   String?
+  instagram  String?
+  x          String?
+  linkedin   String?
+  mentor     Mentor  @relation(fields: [mentorId], references: [id])
+  mentorId   Int     @unique
+}
+
+// -----------------------------
+// COURSE & LESSON MODELS
+// -----------------------------
+model Course {
+  id           Int       @id @default(autoincrement())
+  title        String
+  description  String?
+  price        Float
+  level        EducationLevel
+  instructor   String
+  rating       Float?
+  image        String?
+  createdAt    DateTime   @default(now())
+
+  mentor       Mentor?    @relation(fields: [mentorId], references: [id])
+  mentorId     Int?
+
+  lessons      Lesson[]
+  requirements Requirement[]
+  rules        Rule[]
+
+  // E-learning relations
+  cartItems    CartItem[]
+  orderItems   Order[]   @relation("OrderCourses")
+  favorites    Favorite[]
+  reviews      Review[]
+}
+
+model Lesson {
+  id          Int            @id @default(autoincrement())
+  category    LessonCategory
+  title       String
+  description String
+  icon        String?
+
+  course      Course?  @relation(fields: [courseId], references: [id])
+  courseId    Int?
+}
+
+// -----------------------------
+// PRICING MODELS
+// -----------------------------
+model PricingPack {
+  id        Int       @id @default(autoincrement())
+  title     String
+  price     Float
+  features  Feature[]
+  createdAt DateTime  @default(now())
+}
+
+model Feature {
+  id            Int          @id @default(autoincrement())
+  label         String
+  active        Boolean
+  pricingPack   PricingPack  @relation(fields: [pricingPackId], references: [id])
+  pricingPackId Int
+}
+
+// -----------------------------
+// SHOP / BOOK MODELS
+// -----------------------------
+model ShopCategory {
+  id    Int     @id @default(autoincrement())
   name  String
-  email String @unique
+  books Book[]
 }
 
-model country{
-  id  Int    @id @default(autoincrement())
-  name String
+model Book {
+  id         Int           @id @default(autoincrement())
+  img        String
+  title      String
+  price      String
+  rating     Float?
+  createdAt  DateTime      @default(now())
+
+  category   ShopCategory? @relation(fields: [categoryId], references: [id])
+  categoryId Int?
 }
 
+// -----------------------------
+// STATIC SITE INFO MODELS
+// -----------------------------
+model Requirement {
+  id        Int     @id @default(autoincrement())
+  text      String
+  course    Course? @relation(fields: [courseId], references: [id])
+  courseId  Int?
+}
+
+model Rule {
+  id        Int     @id @default(autoincrement())
+  text      String
+  course    Course? @relation(fields: [courseId], references: [id])
+  courseId  Int?
+}
+
+// -----------------------------
+// LEARNING PLATFORM MODELS
+// -----------------------------
+model Cart {
+  id       Int      @id @default(autoincrement())
+  user     User     @relation(fields: [userId], references: [id])
+  userId   String   @db.Uuid @unique
+  items    CartItem[]
+  createdAt DateTime @default(now())
+}
+
+model CartItem {
+  id       Int    @id @default(autoincrement())
+  cart     Cart   @relation(fields: [cartId], references: [id])
+  cartId   Int
+  course   Course @relation(fields: [courseId], references: [id])
+  courseId Int
+  quantity Int    @default(1)
+}
+
+model Order {
+  id        Int       @id @default(autoincrement())
+  user      User      @relation(fields: [userId], references: [id])
+  userId    String    @db.Uuid 
+  courses   Course[]  @relation("OrderCourses")
+  total     Float
+  status    String
+  createdAt DateTime  @default(now())
+}
+
+model Favorite {
+  id        Int      @id @default(autoincrement())
+  user      User     @relation(fields: [userId], references: [id])
+  userId    String    @db.Uuid 
+  course    Course   @relation(fields: [courseId], references: [id])
+  courseId  Int
+  createdAt DateTime @default(now())
+}
+
+model Review {
+  id        Int      @id @default(autoincrement())
+  user      User     @relation(fields: [userId], references: [id])
+  userId    String    @db.Uuid 
+  course    Course   @relation(fields: [courseId], references: [id])
+  courseId  Int
+  rating    Float
+  comment   String?
+  createdAt DateTime @default(now())
+}
